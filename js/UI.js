@@ -1,6 +1,6 @@
 class UI {
 
-     renderTable(date) {
+    async renderTable(date) {
 
         var dataSet = [
             {
@@ -13,7 +13,7 @@ class UI {
             lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             columns: [
                 { title: "Hora anterior", data: "hora_anterior" },
-                { title: "Hora actual", data: "hora_actual" },
+                { title: "Hora actual", data: "hora_actual" }
             ]
         });
         datatable.rows.add(dataSet);
@@ -21,4 +21,4 @@ class UI {
         console.log(dataSet);
     }
 }
-exports = UI;
+export default UI;

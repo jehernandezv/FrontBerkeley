@@ -1,0 +1,32 @@
+{
+  "name": "frontberkeley",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack-dev-server",
+    "bundle": "npx webpack -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jehernandezv/FrontBerkeley.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jehernandezv/FrontBerkeley/issues"
+  },
+  "homepage": "https://github.com/jehernandezv/FrontBerkeley#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "style-loader": "^1.2.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

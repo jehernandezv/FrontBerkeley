@@ -1,18 +1,18 @@
-import UI from ('./UI');
-
+import UI from './UI';
+const ui = new UI();
 var hora = 0;
 var minuto = 0;
 var segundo = 0;
 
 document.getElementById('btn-changeDate').addEventListener('click',async (event) => {
     event.preventDefault();
-    const anterior = this.hora + ' : ' + this.minuto + ' : ' + this.segundo;
+    const anterior = hora + ' : ' + minuto + ' : ' + segundo;
     hora = parseInt(await document.getElementById('hour').value);
     minuto = parseInt(await document.getElementById('minute').value);
     segundo = parseInt(await document.getElementById('second').value);
     ui.renderTable({
-        hora_anterior: anterior,
-        hora_actual: this.hora + ' : ' + this.minuto + ' : ' + this.segundo
+        anterior: anterior,
+        actual: hora + ' : ' + minuto + ' : ' + segundo
     });
 });
 
@@ -31,14 +31,14 @@ function actual() {
             }
         }
     //devolver los datos:
-    mireloj = ((hora < 10 )?'0'+hora:hora) + ' : ' + ((minuto < 10 )?'0'+minuto:minuto) + ' : ' + ((segundo< 10 )?'0'+segundo:segundo);	
+    const mireloj = ((hora < 10 )?'0'+hora:hora) + ' : ' + ((minuto < 10 )?'0'+minuto:minuto) + ' : ' + ((segundo< 10 )?'0'+segundo:segundo);	
     return mireloj; 
     }
 
 
     function actualizar() { //función del temporizador
-        mihora=actual(); //recoger hora actual
-        mireloj=document.getElementById("reloj"); //buscar elemento reloj
+       const mihora=actual(); //recoger hora actual
+       const mireloj=document.getElementById("reloj"); //buscar elemento reloj
         mireloj.innerHTML=mihora; //incluir hora en elemento
           }
      setInterval(actualizar,1000); //iniciar temporizador
