@@ -2,6 +2,7 @@ class UI {
 
     async renderTable(date) {
 
+        
         var dataSet = [
             {
                 hora_anterior: date.anterior,
