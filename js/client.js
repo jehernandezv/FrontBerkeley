@@ -43,11 +43,33 @@ function actual() {
           }
      setInterval(actualizar,1000); //iniciar temporizador
 
+     function convertTimeToSeconds(){
+        let seconds = 0;
+        seconds += hora*3600;
+        seconds+= minuto*60;
+        seconds+= segundo;
+        return seconds;
+      }
+      
+      function convertSecondsToTime(seconds){
+        hora = Math.trunc(seconds/3600);
+        console.log("horas" + hora);
+        seconds -= hora*3600;
+      
+        minuto = Math.trunc(seconds/60);
+        console.log("minutos" + minuto);
+        seconds -= minuto*60;
+      
+        segundo = Math.trunc(seconds);
+        console.log("segundos" + segundo);
+      }
+
+        convertSecondsToTime(61163);
+    
 
      socket.on('req:time' , function(){
         socket.emit('hour:client', {
-            hour:hora,
-            min:minuto
+            timeClient:convertTimeToSeconds()
         });
      });
 
