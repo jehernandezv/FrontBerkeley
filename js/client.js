@@ -1,3 +1,4 @@
+var socket =  io('http://localhost:3000');
 import UI from './UI';
 const ui = new UI();
 var hora = 0;
@@ -35,47 +36,21 @@ function actual() {
     return mireloj; 
     }
 
-
     function actualizar() { //función del temporizador
-       const mihora=actual(); //recoger hora actual
+       const mihora=actual(); //recoger hora
        const mireloj=document.getElementById("reloj"); //buscar elemento reloj
         mireloj.innerHTML=mihora; //incluir hora en elemento
           }
      setInterval(actualizar,1000); //iniciar temporizador
 
-/*var app = new Vue({
-    el: '#app',
-    data: {
-      time: 'hola',
-      startTime: 0,
-      messages: [],
-      socket: io('http://localhost:3000/clients')
-    },
-    created: function () {
-        this.connect();
-    },
-    methods: {
-        connect: function(){
-            let vue = this;
-            this.socket.on('time', function(msg){
-                vue.messages.push(msg);
-            });
-        },
-        getTime: function () {
-            this.startTime = new Date().getTime();
-            axios
-            .get('http://localhost:3000/time')
-            .then(response => {
-                let endTime = new Date().getTime();
-                const travelTime = (endTime - this.startTime) / 2;
-                let newTime = new Date();
-                newTime.setHours(response.data.hour);
-                newTime.setMinutes(response.data.minutes);
-                newTime.setSeconds(response.data.seconds);
-                newTime.setTime(newTime.getTime() + travelTime);
-                this.time = newTime;
-            }
-            );
-        }
-    }
-})*/
+
+     socket.on('req:time' , function(){
+        socket.emit('hour:client', {
+            hour:hora,
+            min:minuto
+        });
+     });
+
+     socket.on('res:time',(data) => {
+            console.log(data);
+     });
