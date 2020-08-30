@@ -53,26 +53,26 @@ function actual() {
       
       function convertSecondsToTime(seconds){
         hora = Math.trunc(seconds/3600);
-        console.log("horas" + hora);
+        console.log("horas " + hora);
         seconds -= hora*3600;
       
         minuto = Math.trunc(seconds/60);
-        console.log("minutos" + minuto);
+        console.log("minutos " + minuto);
         seconds -= minuto*60;
       
         segundo = Math.trunc(seconds);
-        console.log("segundos" + segundo);
+        console.log("segundos " + segundo);
       }
-
-        convertSecondsToTime(61163);
-    
 
      socket.on('req:time' , function(){
         socket.emit('hour:client', {
-            timeClient:convertTimeToSeconds()
+            timeClient:convertTimeToSeconds(),
+            id_socket: socket.id
         });
      });
 
      socket.on('res:time',(data) => {
-            console.log(data);
+         console.log(data.offset);
+        //const time = convertTimeToSeconds() + data.offset;
+        //convertSecondsToTime(time);
      });
