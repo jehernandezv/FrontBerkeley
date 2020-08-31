@@ -4,12 +4,11 @@
 <head>
   <meta charset='utf-8'>
   <title>Time client</title>
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 </head>
 
 <body>
@@ -28,10 +27,29 @@
     </nav>
   </div>
 
+
   <div class="container">
     <div class="row justify-content-center mb-4 mt-4">
-      <img src="https://download.seaicons.com/icons/paomedia/small-n-flat/1024/clock-icon.png"
-        class="d-inline-block align-top" width="300" height="300">
+      <div class="reloj" id="clock">
+        <div class="aguja horario"></div>
+        <div class="aguja minutero"></div>
+        <div class="aguja segundero"></div>
+        <div>
+          <span id="span" class="h1R">1</span>
+          <span id="span" class="h2R">2</span>
+          <span id="span" class="h3R">3</span>
+          <span id="span" class="h4R">4</span>
+          <span id="span" class="h5R">5</span>
+          <span id="span" class="h6R">6</span>
+          <span id="span" class="h7R">7</span>
+          <span id="span" class="h8R">8</span>
+          <span id="span" class="h9R">9</span>
+          <span id="span" class="h10R">10</span>
+          <span id="span" class="h11R">11</span>
+          <span id="span" class="h12R">12</span>
+        </div>
+        <div class="diallines"></div>
+      </div>
     </div>
 
     <div class="row justify-content-center">
