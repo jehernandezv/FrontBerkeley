@@ -13,7 +13,9 @@ document.getElementById('btn-changeDate').addEventListener('click', async (event
     segundo = parseInt(await document.getElementById('second').value);
     ui.renderTable({
         anterior: anterior,
-        actual: hora + ' : ' + minuto + ' : ' + segundo
+        actual: hora + ' : ' + minuto + ' : ' + segundo,
+        ajuste: '   :   ' + '   :   ',
+        update: 'Usuario'
     });
 });
 
@@ -64,6 +66,15 @@ function convertSecondsToTime(seconds) {
     console.log("segundos " + segundo);
 }
 
+function convertSecondsToTimeString(seconds){
+    let hora = Math.trunc(seconds / 3600);
+    seconds -= hora * 3600;
+    let minuto = Math.trunc(seconds / 60);
+    seconds -= minuto * 60;
+    let segundo = Math.trunc(seconds);
+    return hora + ' : ' + minuto + ' : ' + segundo;
+}
+
 socket.on('req:time', function () {
      socket.emit('hour:client', {
         timeClient: convertTimeToSeconds(),
@@ -72,9 +83,19 @@ socket.on('req:time', function () {
 });
 
 socket.on('res:time', (data) => {
-    console.log(data.offset);
-    const time = data.offset;
-    convertSecondsToTime(time);
+    const offset = data.offset;
+    console.log(offset);
+    const beforeHHMMSS = hora + ' : ' + minuto + ' : ' + segundo;
+    const timeSS = convertTimeToSeconds();
+    console.log("time ss: " + timeSS);
+    convertSecondsToTime(offset);
+    let beforeSS = (offset > timeSS) ? offset - timeSS:((timeSS - offset) * -1); 
+    ui.renderTable({
+        anterior: beforeHHMMSS,
+        actual: hora + ' : ' + minuto + ' : ' + segundo,
+        ajuste: convertSecondsToTimeString(beforeSS) ,
+        update: 'Server'
+    });
 });
 
 const reloj = document.getElementById('clock');
