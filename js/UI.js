@@ -13,10 +13,10 @@ class UI {
             retrieve: true,
             lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             columns: [
-                { title: "Actualializacion", data: "update" },
-                { title: "Hora anterior", data: "hora_anterior" },
-                { title: "Ajuste", data: "ajuste" },
-                { title: "Hora actual", data: "hora_actual" }
+                { title: "Actualización", data: "update" },
+                { title: "Hora anterior (hh:mm:ss)", data: "hora_anterior" },
+                { title: "Ajuste (hh:mm:ss)", data: "ajuste" },
+                { title: "Hora actual (hh:mm:ss)", data: "hora_actual" }
             ]
         });
         datatable.rows.add(dataSet);
